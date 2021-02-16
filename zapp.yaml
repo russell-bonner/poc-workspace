@@ -30,3 +30,18 @@ property-groups:
     type: local
     syslib:
       - "**/asmcopy"
+
+profiles:
+  - name: dbb-userbuild
+    type: dbb
+    settings:
+      command: $DBB_HOME/bin/groovyz
+      buildScriptPath: "/u/ibmuser/dbb-zappbuild/build.groovy"
+      buildScriptArgs:
+        - "--userBuild"
+        - "--workspace /u/ibmuser/dbb-userbuild"
+        - "--application poc-app"
+        - "--hlq IBMUSER.DBB.MORTGAGE"
+        - "--outDir /u/ibmuser/dbb-userbuild/work"
+      additionalDependencies:
+        - application-conf
